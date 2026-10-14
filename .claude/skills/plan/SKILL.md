@@ -14,7 +14,7 @@ description: 현재 GitHub 이슈를 분석해 docs/claude/ 아래에 상세 구
 아래 명령어를 병렬로 실행해 컨텍스트를 수집합니다:
 - `gh issue list --state open --limit 10` — 열린 이슈 목록 확인
 - `git branch --show-current` — 현재 브랜치 확인
-- 현재 브랜치명이 이슈 번호를 포함하면 해당 이슈를 특정합니다 (예: `feature/35` → 이슈 #35)
+- 현재 브랜치명이 이슈 번호를 포함하면 해당 이슈를 특정합니다 (예: `feature/#35` → 이슈 #35)
 - 브랜치에서 이슈를 특정할 수 없으면 `gh issue list` 결과를 보여주고 사용자에게 이슈 번호를 물어봅니다
 - 특정된 이슈에 대해 `gh issue view {번호}` 로 상세 내용을 읽습니다
 

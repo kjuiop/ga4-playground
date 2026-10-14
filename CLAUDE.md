@@ -54,7 +54,7 @@ sh scripts/git-setup.sh
 1. `issue-create` 스킬로 이슈 생성
 2. `feature/#{N}` 브랜치 생성
 3. 개발 후 `pr-create` 스킬로 PR 생성 (base: develop)
-4. `pr-review` 스킬로 리뷰 → `pr-apply` 스킬로 반영
+4. `pr-review` 스킬로 리뷰 → `pr-apply` 스킬로 반영 (또는 `iterate` 로 LGTM 까지 자동 반복)
 
 ## Available Skills
 
@@ -67,6 +67,7 @@ sh scripts/git-setup.sh
 | `pr-create` | 현재 브랜치 커밋 분석 → PR 생성 |
 | `pr-review` | PR 코드 리뷰 → 코멘트 등록 |
 | `pr-apply` | PR 리뷰 코멘트 → 코드 반영 |
+| `iterate` | LGTM 이 나올 때까지 pr-review → pr-apply 반복 |
 | `question` | 질문 답변 → docs/claude/question/ 저장 |
 
 ## Agents

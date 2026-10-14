@@ -68,6 +68,11 @@ EOF
 - `refactoring` → `--label refactoring`
 - `task` → 라벨 없음
 
+라벨이 레포에 없으면 `gh label list`로 확인 후 먼저 생성합니다:
+```
+gh label create refactoring --color FBCA04 --description "구조 개선"
+```
+
 ## 6. 결과 출력
 
 - 생성된 이슈 URL
