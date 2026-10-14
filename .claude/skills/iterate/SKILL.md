@@ -43,7 +43,15 @@ description: 현재 브랜치의 PR을 LGTM이 나올 때까지 pr-review → pr
 
 ## 2. LGTM 등록
 
-- `gh pr review --comment --body "🤖 Claude Review\n\nLGTM ✅ (Round {n})"` 으로 종합 의견을 남깁니다
+- 종합 의견을 남깁니다 (`\n` 은 줄바꿈되지 않으므로 heredoc 사용):
+  ```
+  gh pr review --comment --body "$(cat <<'MD'
+  🤖 Claude Review
+
+  LGTM ✅ (Round {n})
+  MD
+  )"
+  ```
 - 본인 PR 에는 `--approve` 가 불가하므로 `--comment` 를 사용합니다
 
 ## 3. 결과 요약
