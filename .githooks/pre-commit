@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 스테이징된 ts/tsx/js/jsx 파일 목록 캡처
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx|js|jsx)$' || true)
+if [ -z "$staged_files" ]; then
+  echo "[pre-commit] No staged ts/js files. Skipping."
+  exit 0
+fi
+
+# package.json 에 lint 스크립트가 없으면 스킵
+if ! grep -q '"lint"' package.json 2>/dev/null; then
+  echo "[pre-commit] No lint script in package.json. Skipping."
+  exit 0
+fi
+
+echo "[pre-commit] Running ESLint on staged files..."
+
+echo "$staged_files" | xargs npx --no-install eslint --fix
+
+echo "$staged_files" | while IFS= read -r f; do git add "$f"; done
+
+echo "[pre-commit] Done."
