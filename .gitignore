@@ -1,0 +1,22 @@
+### Node.js ###
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+
+### env ###
+.env
+.env*.local
+
+### IDE ###
+.idea
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### claude ###
+docs/claude
