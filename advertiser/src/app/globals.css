@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: var(--font-sans);
+}
