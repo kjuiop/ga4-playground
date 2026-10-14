@@ -69,6 +69,9 @@ PC     (client_id B) ───────────────────�
 
 사전 준비: 테스트용 GA4 속성, User-ID(`user_id`) 전송 구현, 보고 ID 혼합됨/관찰됨 설정
 
+> ⚠️ 테스트 사용자가 적으면 **데이터 임계값**이 적용돼 보고서에서 행이 숨겨질 수 있습니다.
+> 보고서에 경로가 안 보인다고 "기여 안 됨"으로 판단하지 말고, **DebugView로 이벤트 수신**을 확인한 뒤 **BigQuery 원본(5단계)** 을 1차 근거로 사용합니다.
+
 1. **관리 > 데이터 표시 > 보고 ID**가 혼합됨/관찰됨인지 확인
 2. 모바일에서 UTM 테스트 URL로 접속 후 로그인
    `?utm_source=dsp_test&utm_medium=display&utm_campaign=xdevice_test`
@@ -76,6 +79,8 @@ PC     (client_id B) ───────────────────�
 4. 1~2일 뒤 **광고 > 기여 분석 > 기여 경로**에서 `dsp_test → (direct)` 경로 확인
 5. BigQuery Export가 있으면 같은 `user_id`에 `user_pseudo_id` 2개가 묶였는지 원본 확인
 6. 시나리오 D: 2단계에서 로그인 없이 이탈 → 다음 날 같은 모바일로 재방문해 로그인 → 3~5단계 반복
+7. 시나리오 B: 3단계의 PC 접속을 다른 UTM으로 바꿔 반복 → 기여 경로에서 마지막 클릭이 `dsp_test_b`인지 확인
+   `?utm_source=dsp_test_b&utm_medium=display&utm_campaign=xdevice_test`
 
 ### 결과
 
@@ -94,6 +99,7 @@ PC     (client_id B) ───────────────────�
 - [기여 분석 설정 선택](https://support.google.com/analytics/answer/10597962?hl=ko)
 - [Send user IDs (Google for Developers)](https://developers.google.com/analytics/devguides/collection/ga4/user-id)
 - [BigQuery Export 스키마](https://support.google.com/analytics/answer/7029846?hl=ko)
+- [데이터 기준점에 대한 정보](https://support.google.com/analytics/answer/9383630?hl=ko)
 
 ---
 
