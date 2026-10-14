@@ -14,6 +14,6 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // 정적 리소스, 루트(/), robots.txt 는 제외
-  matcher: ["/((?!_next/|favicon.ico|robots.txt|_not-found).+)"],
+  // 루트(/), Next 내부 경로, 확장자가 있는 정적 파일(public/ 이미지, robots.txt 등)은 제외
+  matcher: ["/((?!_next/|_not-found|.*\\..*).+)"],
 };

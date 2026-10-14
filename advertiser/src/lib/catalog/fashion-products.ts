@@ -6,7 +6,9 @@ export interface Product {
   category: string;
   price: number;
   salePrice?: number;
-  colors: { name: string; hex: string }[];
+  /** public/ 기준 이미지 경로 (출처: public/products/fashion/CREDITS.md) */
+  image: string;
+  colors: string[];
   sizes: string[];
   description: string;
 }
@@ -15,28 +17,24 @@ export interface Product {
 export const FASHION_PRODUCTS: Product[] = [
   {
     productNo: 101,
-    name: "울 블렌드 싱글 코트",
+    name: "싱글 버튼 울 블레이저",
     category: "아우터",
-    price: 289000,
-    salePrice: 239000,
-    colors: [
-      { name: "카멜", hex: "#b08a62" },
-      { name: "차콜", hex: "#3f4146" },
-    ],
+    price: 259000,
+    salePrice: 219000,
+    image: "/products/fashion/101.jpg",
+    colors: ["차콜", "블랙"],
     sizes: ["S", "M", "L"],
-    description: "울 60% 블렌드 원단의 미니멀 싱글 코트. 가벼운 무게감으로 간절기부터 겨울까지 활용도가 높습니다.",
+    description: "울 혼방 원단의 싱글 버튼 블레이저. 셔츠와 데님 어디에나 어울리는 베이직한 실루엣입니다.",
   },
   {
     productNo: 102,
-    name: "릴렉스 핏 니트 가디건",
-    category: "니트",
-    price: 89000,
-    colors: [
-      { name: "오트밀", hex: "#d9cbb4" },
-      { name: "네이비", hex: "#2d3a55" },
-    ],
-    sizes: ["FREE"],
-    description: "도톰한 짜임의 루즈한 실루엣 가디건. 셔츠, 티셔츠 어디에나 레이어드하기 좋습니다.",
+    name: "체크 울 머플러",
+    category: "액세서리",
+    price: 49000,
+    image: "/products/fashion/102.jpg",
+    colors: ["네이비 체크"],
+    sizes: ["ONE SIZE"],
+    description: "도톰한 울 소재의 체크 머플러. 컬러 포인트로 겨울 코디에 생기를 더해 줍니다.",
   },
   {
     productNo: 103,
@@ -44,43 +42,41 @@ export const FASHION_PRODUCTS: Product[] = [
     category: "팬츠",
     price: 69000,
     salePrice: 59000,
-    colors: [{ name: "라이트 블루", hex: "#8fa9c7" }],
+    image: "/products/fashion/103.jpg",
+    colors: ["미드 블루"],
     sizes: ["S", "M", "L", "XL"],
-    description: "허리선이 높은 와이드 핏 데님. 워싱 처리로 자연스러운 빈티지 무드를 더했습니다.",
+    description: "허리선이 높은 와이드 핏 데님. 밑단 스티치 디테일로 빈티지한 무드를 더했습니다.",
   },
   {
     productNo: 104,
-    name: "레더 미니 크로스백",
-    category: "가방",
-    price: 129000,
-    colors: [
-      { name: "블랙", hex: "#1f1f1f" },
-      { name: "탄", hex: "#a67b52" },
-    ],
+    name: "레더 반지갑",
+    category: "지갑",
+    price: 89000,
+    image: "/products/fashion/104.jpg",
+    colors: ["블랙"],
     sizes: ["ONE SIZE"],
-    description: "소가죽 소재의 컴팩트한 크로스백. 탈착 가능한 스트랩으로 숄더백으로도 연출할 수 있습니다.",
+    description: "부드러운 소가죽 반지갑. 카드 슬롯 6개와 지폐 수납 공간으로 실용적입니다.",
   },
   {
     productNo: 105,
-    name: "코튼 오버핏 셔츠",
-    category: "셔츠",
-    price: 59000,
-    colors: [
-      { name: "화이트", hex: "#f2f0eb" },
-      { name: "스카이", hex: "#b9cfe4" },
-    ],
-    sizes: ["M", "L"],
-    description: "부드러운 코튼 100% 오버핏 셔츠. 단독으로도, 아우터 안에 레이어드해도 좋습니다.",
+    name: "메탈 프레임 선글라스",
+    category: "아이웨어",
+    price: 129000,
+    salePrice: 109000,
+    image: "/products/fashion/105.jpg",
+    colors: ["골드/블랙"],
+    sizes: ["ONE SIZE"],
+    description: "얇은 메탈 프레임과 스모크 렌즈의 스퀘어 선글라스. UV400 자외선 차단.",
   },
   {
     productNo: 106,
-    name: "스웨이드 첼시 부츠",
-    category: "슈즈",
-    price: 159000,
-    salePrice: 135000,
-    colors: [{ name: "브라운", hex: "#6b4a33" }],
-    sizes: ["230", "240", "250", "260", "270"],
-    description: "스웨이드 소재의 클래식 첼시 부츠. 양쪽 밴딩으로 신고 벗기 편합니다.",
+    name: "코튼 버킷햇",
+    category: "모자",
+    price: 39000,
+    image: "/products/fashion/106.jpg",
+    colors: ["베이지", "카키"],
+    sizes: ["M", "L"],
+    description: "가벼운 코튼 소재의 와이드 브림 버킷햇. 접어서 휴대하기 좋습니다.",
   },
 ];
 

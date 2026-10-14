@@ -30,10 +30,10 @@ export default async function SiteMainPage({ params }: PageProps<"/[site]">) {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="mb-6 text-sm font-semibold tracking-[0.2em]">NEW ARRIVALS</h2>
         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3">
-          {FASHION_PRODUCTS.map((product) => (
+          {FASHION_PRODUCTS.map((product, index) => (
             <li key={product.productNo}>
               <Link href={`/${site}/product/detail?product_no=${product.productNo}`} className="group block">
-                <ProductImage name={product.category} hex={product.colors[0].hex} className="group-hover:opacity-90" />
+                <ProductImage product={product} priority={index < 3} className="transition-opacity group-hover:opacity-90" />
                 <p className="mt-3 text-sm">{product.name}</p>
                 <p className="mt-1 text-sm">
                   {product.salePrice && (

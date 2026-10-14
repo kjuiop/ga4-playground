@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSession } from "@/lib/auth/session-store";
 
-const NAV = ["NEW", "아우터", "니트", "팬츠", "가방", "슈즈"];
+const NAV = ["NEW", "아우터", "팬츠", "액세서리", "지갑", "아이웨어"];
 
 export function SiteHeader({ site, brand }: { site: string; brand: string }) {
   const { status, account } = useSession();

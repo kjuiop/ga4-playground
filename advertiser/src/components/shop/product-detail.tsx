@@ -12,7 +12,7 @@ export function ProductDetail({ site }: { site: string }) {
   const productNo = Number(useSearchParams().get("product_no"));
   const product = findProduct(productNo);
 
-  const [color, setColor] = useState(product?.colors[0].name ?? "");
+  const [color, setColor] = useState(product?.colors.length === 1 ? product.colors[0] : "");
   const [size, setSize] = useState(product?.sizes.length === 1 ? product.sizes[0] : "");
 
   useEffect(() => {
@@ -30,8 +30,6 @@ export function ProductDetail({ site }: { site: string }) {
     );
   }
 
-  const hex = product.colors.find((c) => c.name === color)?.hex ?? product.colors[0].hex;
-
   const buyNow = () => {
     const query = new URLSearchParams({ product_no: String(product.productNo), color, size });
     router.push(`/${site}/order/orderform?${query}`);
@@ -39,7 +37,7 @@ export function ProductDetail({ site }: { site: string }) {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 md:grid-cols-2 md:py-12">
-      <ProductImage name={product.category} hex={hex} />
+      <ProductImage product={product} priority sizes="(min-width: 768px) 50vw, 100vw" />
 
       <div className="flex flex-col gap-6">
         <div>
@@ -55,7 +53,7 @@ export function ProductDetail({ site }: { site: string }) {
 
         <p className="text-sm leading-relaxed text-neutral-600">{product.description}</p>
 
-        <OptionGroup label="색상" options={product.colors.map((c) => c.name)} value={color} onChange={setColor} />
+        <OptionGroup label="색상" options={product.colors} value={color} onChange={setColor} />
         <OptionGroup label="사이즈" options={product.sizes} value={size} onChange={setSize} />
 
         <button
