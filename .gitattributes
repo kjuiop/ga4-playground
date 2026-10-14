@@ -1,0 +1,3 @@
+# 훅/쉘 스크립트는 Windows 에서도 LF 유지 (CRLF 면 sh 실행 실패)
+*.sh text eol=lf
+.githooks/* text eol=lf
